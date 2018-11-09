@@ -1,0 +1,35 @@
+public class kata3
+{
+	public static String calc(String out, int n, int nx, char l, int nbr)
+	{
+		int i = nbr / n;
+		nbr %= n;
+		while (i > 0)
+		{
+			out += l;
+			i--;
+		}
+		return out;
+	}
+	public static String toRoman(int nbr)
+	{
+		String out = calc("", 1000, 'M', nbr);
+		nbr %= 1000;
+		out += calc("", 500, 'D', nbr);
+		nbr %= 500;
+		out += calc("", 100, 'C', nbr);
+		nbr %= 100;
+		out += calc("", 50, 'L', nbr);
+		nbr %= 50;
+		out += calc("", 10, 'X', nbr);
+		nbr %= 10;
+		out += calc("", 5, 'V', nbr);
+		nbr %= 5;
+		out += calc("", 1, 'I', nbr);
+		return out;
+	}
+	public static void main(String[] args)
+	{
+		System.out.println(toRoman(1546));
+	}
+}
